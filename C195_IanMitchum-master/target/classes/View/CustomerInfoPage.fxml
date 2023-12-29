@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="788.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.CustomerInfoPageController">
+   <children>
+      <TableView fx:id="customerTableView" layoutX="74.0" layoutY="85.0" prefHeight="200.0" prefWidth="680.0">
+         <columns>
+            <TableColumn fx:id="customerIDCol" minWidth="68.0" prefWidth="81.0" text="Customer ID" />
+            <TableColumn fx:id="customerNameCol" minWidth="89.0" prefWidth="89.0" text="Name" />
+            <TableColumn fx:id="customerAddressCol" prefWidth="121.0" text="Address" />
+            <TableColumn fx:id="customerPostalCodeCol" prefWidth="75.0" text="Postal Code" />
+            <TableColumn fx:id="customerPhoneNumberCol" prefWidth="112.0" text="Phone Number" />
+            <TableColumn fx:id="customerCountryCol" prefWidth="90.0" text="Country" />
+            <TableColumn fx:id="customerDivisionCol" prefWidth="111.0" text="Division " />
+         </columns>
+      </TableView>
+      <Button fx:id="addCustomerBtn" layoutX="72.0" layoutY="299.0" mnemonicParsing="false" onAction="#addCustomerPage" text="Add" />
+      <Button fx:id="updateCustomerBtn" layoutX="125.0" layoutY="299.0" mnemonicParsing="false" onAction="#updateCustomerPage" text="Update" />
+      <Button fx:id="deleteCustomerBtn" layoutX="196.0" layoutY="299.0" mnemonicParsing="false" onAction="#deleteCustomer" text="Delete" />
+      <Label layoutX="72.0" layoutY="51.0" text="Customer Information">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="customerAppointmentsBtn" layoutX="486.0" layoutY="52.0" mnemonicParsing="false" onAction="#onActionAppointmentsForm" text="appointments" />
+      <Button fx:id="customerReportsBtn" layoutX="590.0" layoutY="52.0" mnemonicParsing="false" onAction="#OnActionReportsPage" text="Reports" />
+      <Button fx:id="customerPageExitBtn" layoutX="612.0" layoutY="299.0" mnemonicParsing="false" onAction="#OnActionExitCustomerPage" text="Exit" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="Controller.updateCustomerPageController">
+    <children>
+        <Label layoutX="38.0" layoutY="26.0" text="Update Customer">
+            <font>
+                <Font size="24.0"/>
+            </font>
+        </Label>
+        <Label layoutX="38.0" layoutY="94.0" text="Customer ID"/>
+        <TextField fx:id="updateCustomerIDTxt" disable="true" layoutX="142.0" layoutY="90.0"
+                   promptText="Auto-Generated"/>
+        <Label layoutX="38.0" layoutY="136.0" text="Customer Name"/>
+        <TextField fx:id="updateCustomerNameTxt" layoutX="142.0" layoutY="132.0"/>
+        <Label layoutX="38.0" layoutY="174.0" text="Customer Address"/>
+        <TextField fx:id="updateCustomerAddressTxt" layoutX="142.0" layoutY="170.0"/>
+        <Label layoutX="38.0" layoutY="215.0" text="Postal Code"/>
+        <TextField fx:id="updateCustomerPostalCodeTxt" layoutX="142.0" layoutY="211.0"/>
+        <Label layoutX="38.0" layoutY="259.0" text="Phone Number"/>
+        <TextField fx:id="updateCustomerPhoneNumberTxt" layoutX="142.0" layoutY="255.0"/>
+        <Label layoutX="38.0" layoutY="298.0" text="Countries"/>
+        <ComboBox fx:id="updateCustomerCountry" layoutX="142.0" layoutY="294.0" onAction="#onActionUpdateCustomerCombo"
+                  prefWidth="150.0" promptText="Country"/>
+        <Label layoutX="38.0" layoutY="334.0" text="Divisions"/>
+        <ComboBox fx:id="updateCustomerDivisions" layoutX="142.0" layoutY="330.0" prefWidth="150.0"
+                  promptText="State / Region"/>
+        <Button layoutX="446.0" layoutY="355.0" mnemonicParsing="false" onAction="#onActionSaveUpdateBtn" text="Save"/>
+        <Button layoutX="522.0" layoutY="355.0" mnemonicParsing="false" onAction="#onActionReturntoCustomerInfoBtn"
+                text="Cancel"/>
+    </children>
+</AnchorPane>

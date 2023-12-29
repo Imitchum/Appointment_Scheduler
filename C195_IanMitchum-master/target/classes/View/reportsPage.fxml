@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="319.0" prefWidth="1297.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.reportsPageController">
+   <children>
+      <Button layoutX="508.0" layoutY="20.0" mnemonicParsing="false" onAction="#onActionGoToAppointmentsPage" text="Appointments" />
+      <Button layoutX="413.0" layoutY="20.0" mnemonicParsing="false" onAction="#onActionGoToCustomersPage" text="Customers" />
+      <Button layoutX="615.0" layoutY="20.0" mnemonicParsing="false" onAction="#onActionGoToMainLoginScreen" text="Cancel" />
+      <TableView fx:id="reportAppointmentTbleView" layoutX="12.0" layoutY="60.0" prefHeight="101.0" prefWidth="680.0">
+        <columns>
+          <TableColumn fx:id="reportAppointmentId" prefWidth="113.0" text="Appointment ID" />
+          <TableColumn fx:id="reportAppointmentTitle" prefWidth="69.0" text="Title" />
+            <TableColumn fx:id="reportAppointmentType" prefWidth="75.0" text="Type" />
+            <TableColumn fx:id="reportAppointmentDesc" prefWidth="75.0" text="Description" />
+            <TableColumn fx:id="reportAppointmentStart" prefWidth="133.0" text="Start Date And Time" />
+            <TableColumn fx:id="reportAppointmentEnd" prefWidth="128.0" text="End Date and Time" />
+            <TableColumn fx:id="reportAppointmentCustomerID" prefWidth="86.0" text="Customer ID" />
+        </columns>
+      </TableView>
+      <TableView fx:id="reportMonthTableView" layoutX="715.0" layoutY="60.0" prefHeight="200.0" prefWidth="281.0">
+        <columns>
+          <TableColumn fx:id="reportAppointmentMonth" prefWidth="132.0" text="Appointment Month" />
+          <TableColumn fx:id="reportType" prefWidth="69.0" text="Type" />
+            <TableColumn fx:id="reportTotal" prefWidth="79.0" text="Total" />
+        </columns>
+      </TableView>
+      <TableView fx:id="reportContactTableView" layoutX="1015.0" layoutY="60.0" prefHeight="200.0" prefWidth="232.0">
+        <columns>
+          <TableColumn fx:id="reportContactID" prefWidth="111.0" text="Contact_ID" />
+          <TableColumn fx:id="reportContactTotal" prefWidth="120.0" text="Total" />
+        </columns>
+      </TableView>
+      <ComboBox fx:id="reportContactCmboBx" layoutX="540.0" layoutY="172.0" onAction="#onActionSelectContactByID" prefWidth="150.0" />
+      <Label layoutX="30.0" layoutY="6.0" prefHeight="46.0" prefWidth="139.0" text="Reports">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="757.0" layoutY="24.0" text="Appointments by Month &amp; Type">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="1038.0" layoutY="24.0" text="Appointment by Contact &amp; Total">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
