@@ -1,10 +1,8 @@
 package Helper;
-
 import DAO.AppointmentsDAO;
 import Model.Appointments;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
-
 import java.time.LocalDateTime;
 
 public class ApptOverlapHelper {

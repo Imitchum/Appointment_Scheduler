@@ -87,9 +87,9 @@ public class MainLoginController implements Initializable {
             //french pop dialog invalid user/ alert box
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Login alert");
-            alert.setContentText(rb.getString("Incorrect") + rb.getString(" Username ") + rb.getString(" And ")
-                    + rb.getString(" Or ") + rb.getString("Password") + "." +
-                    rb.getString(" Please ") + rb.getString(" Try ") + rb.getString("Again") + ".");
+            alert.setContentText(rb.getString("Incorrect") + " " + rb.getString("Username") +" "+ rb.getString("And")
+                    + rb.getString("Or") + " " + rb.getString("Password") + "." +
+                    rb.getString("Please") + " " + rb.getString("Try") +" " +  rb.getString("Again") + ".");
             alert.showAndWait();
 
             // log to login activity unsuccessful login
@@ -114,7 +114,6 @@ public class MainLoginController implements Initializable {
         tzLbl.setText(String.valueOf(ZoneId.systemDefault()));
         if (Locale.getDefault().getLanguage().equals("fr")) {
             ResourceBundle rb = ResourceBundle.getBundle("Resource/fre_fr", Locale.getDefault());
-
             usernameLbl.setText(rb.getString("Username"));
             passwordLbl.setText(rb.getString("Password"));
             regionLbl.setText(rb.getString("Region"));

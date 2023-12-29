@@ -15,7 +15,6 @@ public class TimeHelper {
     //method to change timezones
     private static ObservableList<LocalTime> businessStart = FXCollections.observableArrayList();
     private static ObservableList<LocalTime> businessEnd = FXCollections.observableArrayList();
-
     private static void businessHours() {
         ZonedDateTime easternStart = ZonedDateTime.of(LocalDate.now(), LocalTime.of(8,0) , ZoneId.of("America/New_York"));
         LocalDateTime localStart = easternStart.withZoneSameInstant(ZoneId.systemDefault()).toLocalDateTime();
@@ -72,8 +71,5 @@ public class TimeHelper {
             alert.setContentText("No upcoming appointments");
             alert.showAndWait();
         }
-
     }
-
-
 }
