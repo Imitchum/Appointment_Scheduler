@@ -215,6 +215,11 @@ public class updateAppointmentsPageController implements Initializable {
                 scene = FXMLLoader.load(getClass().getResource("/View/appointmentsPage.fxml"));
                 stage.setScene(new Scene(scene));
                 stage.show();
+
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Update appointment alert");
+                alert.setContentText("Appointment updated");
+                alert.showAndWait();
             }
         } catch(NullPointerException e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);

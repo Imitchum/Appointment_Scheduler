@@ -61,6 +61,7 @@ public class appointmentsPageController implements Initializable {
     void onActionDeleteAppointment(ActionEvent event) {
         Appointments appts = AppointmentsTableView.getSelectionModel().getSelectedItem();
 
+
         if(appts == null) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Delete Appointment Alert");
@@ -125,6 +126,7 @@ public class appointmentsPageController implements Initializable {
     void onActionUpdateAppointmentMenu(ActionEvent event) throws IOException {
         Appointments appts = AppointmentsTableView.getSelectionModel().getSelectedItem();
 
+
         if(appts == null) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Update Appointment Alert");
@@ -141,12 +143,12 @@ public class appointmentsPageController implements Initializable {
         Appointments selectedAppointments = AppointmentsTableView.getSelectionModel().getSelectedItem();
         AIController.sendAppointmentInfo(selectedAppointments);
 
-
         stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(scene));
         stage.show();
 
     }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -162,7 +164,10 @@ public class appointmentsPageController implements Initializable {
         appointmentCustomerIDCol.setCellValueFactory(new PropertyValueFactory<>("CustomerID"));
         appointmentUserIDCol.setCellValueFactory(new PropertyValueFactory<>("UserID"));
         contactApptCol.setCellValueFactory(new PropertyValueFactory<>("contactID"));
-
         AppointmentsTableView.setItems(Alist);
+
+
+
+
     }
 }

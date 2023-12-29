@@ -95,6 +95,7 @@ public class CustomerInfoPageController implements Initializable {
 
         int chooseCustomer = customerTableView.getSelectionModel().getSelectedItem().getCustomerID();
 
+        // The second lamda. It checks if the customer id of each appointment equals the chooseCustomer variable.
         numOfAssociatedAppts = (int) associatedAppts.stream()
                 .filter(assocAppt -> assocAppt.getCustomerID() == chooseCustomer)
                 .count();

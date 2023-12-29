@@ -24,22 +24,16 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class addCustomerPageController implements Initializable {
-
     @FXML
     private TextField CustomerPhoneNumberTxt;
-
     @FXML
     private ComboBox<Countries> addCustomerCountry;
-
     @FXML
     private ComboBox<FirstLevelDivisions> addCustomerState;
-
     @FXML
     private TextField customerAddressTxt;
-
     @FXML
     private TextField customerNameTxt;
-
     @FXML
     private TextField customerPostalCodeTxt;
 
@@ -106,6 +100,11 @@ public class addCustomerPageController implements Initializable {
                 scene = FXMLLoader.load(getClass().getResource("/View/CustomerInfoPage.fxml"));
                 stage.setScene(new Scene(scene));
                 stage.show();
+
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Add customer alert");
+                alert.setContentText("Customer added");
+                alert.showAndWait();
             }
 
         } catch(NullPointerException e){
@@ -114,8 +113,6 @@ public class addCustomerPageController implements Initializable {
             alert.setContentText("Customer country and division cannot be blank. Please select a country and division.");
             alert.showAndWait();
         }
-
-
     }
 
     @FXML

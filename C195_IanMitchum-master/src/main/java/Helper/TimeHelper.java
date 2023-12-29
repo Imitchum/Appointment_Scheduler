@@ -59,7 +59,7 @@ public class TimeHelper {
             if ((startTime.isAfter(currentTime) || startTime.isEqual(currentTimePlus15)) && (startTime.isBefore(currentTimePlus15) || startTime.isEqual(currentTime))) {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Alert");
-                alert.setContentText("Appointment " + appointment.getAppointmentID() + " begins at " + appointment.getAppointmentStartTime().format(formatter));
+                alert.setContentText("Appointment " + appointment.getAppointmentID() + " begins on " + appointment.getAppointmentStartTime().format(formatter));
                 alert.showAndWait();
                 hasValidAppointment = true;
             }

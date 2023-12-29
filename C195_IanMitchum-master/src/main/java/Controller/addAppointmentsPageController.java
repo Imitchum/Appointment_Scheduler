@@ -56,7 +56,7 @@ public class addAppointmentsPageController implements Initializable {
 
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Cancel Appointment Alert");
-        alert.setContentText("Appointment canceled!");
+        alert.setContentText("Appointment canceled");
         alert.showAndWait();
 
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -161,6 +161,11 @@ public class addAppointmentsPageController implements Initializable {
                 scene = FXMLLoader.load(getClass().getResource("/View/appointmentsPage.fxml"));
                 stage.setScene(new Scene(scene));
                 stage.show();
+
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Add appointment alert");
+                alert.setContentText("Appointment added");
+                alert.showAndWait();
             }
         } catch (NullPointerException e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);

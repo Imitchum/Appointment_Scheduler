@@ -46,7 +46,6 @@ public class updateCustomerPageController implements Initializable {
     Parent scene;
 
     public void sendCustomerInfo(Customers selectedCustomer){
-
         updateCustomerIDTxt.setText(String.valueOf(selectedCustomer.getCustomerID()));
         updateCustomerNameTxt.setText(selectedCustomer.getCustomerName());
         updateCustomerAddressTxt.setText(selectedCustomer.getCustomerAddress());
@@ -63,7 +62,6 @@ public class updateCustomerPageController implements Initializable {
             }
         }
 
-
         for(Countries countries: countryList) {
             if(countries.getCountryID() == countryID) {
                 updateCustomerCountry.setValue(countries);
@@ -71,14 +69,12 @@ public class updateCustomerPageController implements Initializable {
             }
         }
 
-
         ObservableList<FirstLevelDivisions> FLDList = FLDivisionsDAO.getDivisions();
             for (FirstLevelDivisions fld : FLDList) {
                 if (fld.getDivisionID() == selectedCustomer.getDivisionId()) {
                     updateCustomerDivisions.setValue(new FirstLevelDivisions(fld.divisionID, fld.divisionName, fld.countryID));
                 }
             }
-
     }
 
     @FXML
@@ -89,7 +85,9 @@ public class updateCustomerPageController implements Initializable {
         stage.show();
 
     }
-    //one of two lamda expressions, originally hard coded both country and divisions boxes creating several lines of unncessary code. Using a lamda reduced the amount of code by over 20 lines.
+
+    //one of two lamda expressions, originally hard coded both country and divisions boxes creating several lines of unncessary code.
+    // Using a lamda reduced the amount of code by over 20 lines.
     @FXML
     void onActionUpdateCustomerCombo(ActionEvent event) {
         ObservableList<FirstLevelDivisions> divisionsByCountry = FXCollections.observableArrayList();
@@ -156,6 +154,11 @@ public class updateCustomerPageController implements Initializable {
                 scene = FXMLLoader.load(getClass().getResource("/View/CustomerInfoPage.fxml"));
                 stage.setScene(new Scene(scene));
                 stage.show();
+
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Update customer alert");
+                alert.setContentText("Customer updated");
+                alert.showAndWait();
             }
 
         } catch(NullPointerException e){
