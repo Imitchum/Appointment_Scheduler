@@ -57,19 +57,20 @@ public class MainLoginController implements Initializable {
 
     @FXML
     void onActionGoToCustomersPage(ActionEvent event) throws IOException {
+        //gets timestamp for current time and date
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm:ss");
         String timestamp = now.format(formatter);
 
+        //file writer that records login activity
         String filename = "login_activity.txt";
         FileWriter fWriter = new FileWriter(filename, true);
         PrintWriter pWriter = new PrintWriter(fWriter);
 
 
-
         Users userlgn = UsersDAO.login(userNameTxt.getText(), mainLoginPasswordTxt.getText());
-        if(userlgn != null) {
 
+        if(userlgn != null) {
             stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
             scene = FXMLLoader.load(getClass().getResource("/View/CustomerInfoPage.fxml"));
             stage.setScene(new Scene(scene));
@@ -81,7 +82,20 @@ public class MainLoginController implements Initializable {
             //login activity successful login
             pWriter.println("User login successful on " + timestamp);
 
-        } else {
+        } else if(Locale.getDefault().getLanguage().equals("fr")) {
+            ResourceBundle rb = ResourceBundle.getBundle("Resource/fre_fr", Locale.getDefault());
+            //french pop dialog invalid user/ alert box
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Login alert");
+            alert.setContentText(rb.getString("Incorrect") + rb.getString(" Username ") + rb.getString(" And ")
+                    + rb.getString(" Or ") + rb.getString("Password") + "." +
+                    rb.getString(" Please ") + rb.getString(" Try ") + rb.getString("Again") + ".");
+            alert.showAndWait();
+
+            // log to login activity unsuccessful login
+            pWriter.println("User login unsuccessful on " + timestamp);
+        }
+        else {
             //pop dialog invalid user/ alert box
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Login alert");
