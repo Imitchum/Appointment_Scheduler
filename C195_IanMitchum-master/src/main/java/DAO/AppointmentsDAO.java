@@ -4,11 +4,16 @@ import Model.Appointments;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import java.sql.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 
+/**
+ * This has the methods to handle database interactions for the appointments class
+ */
 public class AppointmentsDAO {
+    /**
+     * This method gets all appointments from the database
+     * @return - all appointments
+     */
     public static ObservableList<Appointments> getAllAppointments()
     {
         ObservableList<Appointments> appointments = FXCollections.observableArrayList();
@@ -45,6 +50,10 @@ public class AppointmentsDAO {
         return appointments;
     }
 
+    /**
+     * This method gets appointments by week for the appointment tableview
+     * @return - appointments by week
+     */
     public static ObservableList<Appointments> getAppointmentsByWeek()
     {
         ObservableList<Appointments> appointments = FXCollections.observableArrayList();
@@ -81,6 +90,10 @@ public class AppointmentsDAO {
         return appointments;
     }
 
+    /**
+     * This method gets appointments by month for the appointment tableview
+     * @return - appointments by month
+     */
     public static ObservableList<Appointments> getAppointmentsByMonth()
     {
         ObservableList<Appointments> appointments = FXCollections.observableArrayList();
@@ -115,7 +128,11 @@ public class AppointmentsDAO {
         return appointments;
     }
 
-
+    /**
+     * This method returns appointments by contact ID
+     * @param contactID - contact ID
+     * @return - appointments by contact ID
+     */
     public ObservableList<Appointments> getApptByContactID(int contactID)
     {
         ObservableList<Appointments> appointments = FXCollections.observableArrayList();
@@ -152,7 +169,18 @@ public class AppointmentsDAO {
         return appointments;
     }
 
-
+    /**
+     * This method adds appointments to the database
+     * @param title - title
+     * @param description - description
+     * @param location - location
+     * @param type - type
+     * @param start - start
+     * @param end - end
+     * @param customerID - customer ID
+     * @param userID - user ID
+     * @param contactID - contact ID
+     */
     public static void addAppointment(String title, String description, String location, String type, LocalDateTime start,LocalDateTime end, int customerID, int userID, int contactID){
         try{
             String sql = "INSERT INTO appointments (Title, Description, Location, Type, Start, End, Customer_ID, User_ID, Contact_ID) Values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -171,6 +199,18 @@ public class AppointmentsDAO {
         } catch (SQLException e){e.printStackTrace();}
     }
 
+    /**
+     * This method updates appointments in the database
+     * @param title - title
+     * @param description - description
+     * @param location - location
+     * @param type - type
+     * @param start - start
+     * @param end - end
+     * @param customerID - customer ID
+     * @param userID - user ID
+     * @param contactID - contact ID
+     */
     public static void updateAppointment(String title, String description, String location, String type, LocalDateTime start,LocalDateTime end, int customerID, int userID, int contactID, int appointmentID){
         try{
             String sql = "UPDATE appointments SET Title=?, Description=?, Location=?, Type=?, Start=?, End=?, Customer_ID=?, User_ID=?, Contact_ID=? WHERE Appointment_ID=?";
@@ -189,6 +229,10 @@ public class AppointmentsDAO {
         } catch (SQLException e){e.printStackTrace();}
     }
 
+    /**
+     * This method deletes appointmentts from the database using the appointment ID
+     * @param appointmentID - appointment ID
+     */
     public static void deleteAppointment(int appointmentID) {
         try{
             String sql = "DELETE FROM `appointments` WHERE Appointment_ID = ? ";

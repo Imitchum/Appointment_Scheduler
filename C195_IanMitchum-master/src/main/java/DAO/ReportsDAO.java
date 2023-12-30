@@ -1,18 +1,19 @@
 package DAO;
-
-import Model.Appointments;
-import Model.Contacts;
 import Model.Reports;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
 
+/**
+ * This has the methods to handle database interactions for the reports class
+ */
 public class ReportsDAO {
+    /**
+     *This method gets the total of reports by month and groups them by month and type
+     * @return - reports
+     */
     public static ObservableList<Reports> getAllReports() {
         ObservableList<Reports> reports = FXCollections.observableArrayList();
         try {
@@ -28,15 +29,10 @@ public class ReportsDAO {
 
                 Reports R = new Reports(month, type, total);
                 reports.add(R);
-
             }
 
         } catch (SQLException ex) {
         }
-
-
         return reports;
     }
-
-
 }
