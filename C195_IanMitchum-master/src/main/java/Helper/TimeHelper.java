@@ -1,20 +1,24 @@
 package Helper;
-
 import DAO.AppointmentsDAO;
 import Model.Appointments;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * This method handles the business hours as well as the 15-minute alerts when the user logs in
+ */
 public class TimeHelper {
     //method to change combo boxes to business hours 8a-10p
     //method to change timezones
     private static ObservableList<LocalTime> businessStart = FXCollections.observableArrayList();
     private static ObservableList<LocalTime> businessEnd = FXCollections.observableArrayList();
+
+    /**
+     * This method that sets the business hours to the local time based on the users location
+     */
     private static void businessHours() {
         ZonedDateTime easternStart = ZonedDateTime.of(LocalDate.now(), LocalTime.of(8,0) , ZoneId.of("America/New_York"));
         LocalDateTime localStart = easternStart.withZoneSameInstant(ZoneId.systemDefault()).toLocalDateTime();
@@ -27,6 +31,10 @@ public class TimeHelper {
         }
     }
 
+    /**
+     * adds business start hours
+     * @return - businessStart
+     */
     public static ObservableList<LocalTime> getBusinessStart() {
         if(businessStart.isEmpty()) {
             businessHours();
@@ -34,6 +42,10 @@ public class TimeHelper {
         return businessStart;
     }
 
+    /**
+     * adds businesss hours
+     * @return - businessEnd
+     */
     public static ObservableList<LocalTime> getBusinessEnd() {
         if(businessEnd.isEmpty()) {
             businessHours();
@@ -41,6 +53,10 @@ public class TimeHelper {
         return businessEnd;
     }
 
+
+    /**
+     * This method checks for upcoming appointments that are within 15 minutes of the user logging in
+     */
     public static void upcomingApptAlert() {
         LocalDateTime currentTime = LocalDateTime.now();
         ZonedDateTime currentTimeZone = currentTime.atZone(ZoneId.systemDefault());
