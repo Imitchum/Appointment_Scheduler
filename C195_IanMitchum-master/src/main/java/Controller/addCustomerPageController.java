@@ -1,5 +1,4 @@
 package Controller;
-
 import DAO.CountryDAO;
 import DAO.CustomersDAO;
 import DAO.FLDivisionsDAO;
@@ -18,11 +17,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * This is the add customer page controller
+ */
 public class addCustomerPageController implements Initializable {
     @FXML
     private TextField CustomerPhoneNumberTxt;
@@ -36,10 +37,14 @@ public class addCustomerPageController implements Initializable {
     private TextField customerNameTxt;
     @FXML
     private TextField customerPostalCodeTxt;
-
     Stage stage;
     Parent scene;
 
+    /**
+     * This method will return to the main customer page if a user clicks cancel
+     * @param event - event
+     * @throws IOException - exception handling
+     */
     @FXML
     void onActionReturnToCustomerInfo(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -48,6 +53,11 @@ public class addCustomerPageController implements Initializable {
         stage.show();
     }
 
+    /**
+     * This method handles saving the customer information to the database as well as handling any exceptions
+     * @param event - event
+     * @throws IOException - exception handling
+     */
     @FXML
     void onActionSaveCustomer(ActionEvent event) throws IOException {
         try {
@@ -100,13 +110,11 @@ public class addCustomerPageController implements Initializable {
                 scene = FXMLLoader.load(getClass().getResource("/View/CustomerInfoPage.fxml"));
                 stage.setScene(new Scene(scene));
                 stage.show();
-
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Add customer alert");
                 alert.setContentText("Customer added");
                 alert.showAndWait();
             }
-
         } catch(NullPointerException e){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Add customer alert");
@@ -115,6 +123,10 @@ public class addCustomerPageController implements Initializable {
         }
     }
 
+    /**
+     * This handles the filtering of countries and first level divisions
+     * @param event
+     */
     @FXML
     void CountryComboBox(ActionEvent event) {
         ObservableList<FirstLevelDivisions> divisionsByCountry = FXCollections.observableArrayList();
@@ -128,6 +140,11 @@ public class addCustomerPageController implements Initializable {
         addCustomerState.setItems(divisionsByCountry);
     }
 
+    /**
+     * This populates the country combo box with the associated information.
+     * @param url - url
+     * @param resourceBundle - resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
       ObservableList<Countries> allCountries = CountryDAO.getAllCountries();

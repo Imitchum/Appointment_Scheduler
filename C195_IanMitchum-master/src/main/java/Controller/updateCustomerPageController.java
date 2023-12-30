@@ -1,10 +1,7 @@
 package Controller;
-
-import DAO.ContactsDAO;
 import DAO.CountryDAO;
 import DAO.CustomersDAO;
 import DAO.FLDivisionsDAO;
-import Model.Contacts;
 import Model.Countries;
 import Model.Customers;
 import Model.FirstLevelDivisions;
@@ -21,11 +18,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * This is the update customer page controller it takes the data sent from the main customers page and sets it in all the fields of the update customers page
+ */
 public class updateCustomerPageController implements Initializable {
     @FXML
     private TextField updateCustomerAddressTxt;
@@ -45,13 +44,16 @@ public class updateCustomerPageController implements Initializable {
     Stage stage;
     Parent scene;
 
+    /**
+     * This method takes the information sent from the main customers controller and sets it in all fields and combo boxes in the update customer page
+     * @param selectedCustomer
+     */
     public void sendCustomerInfo(Customers selectedCustomer){
         updateCustomerIDTxt.setText(String.valueOf(selectedCustomer.getCustomerID()));
         updateCustomerNameTxt.setText(selectedCustomer.getCustomerName());
         updateCustomerAddressTxt.setText(selectedCustomer.getCustomerAddress());
         updateCustomerPostalCodeTxt.setText(selectedCustomer.getCustomerPostalCode());
         updateCustomerPhoneNumberTxt.setText(selectedCustomer.getCustomerPhoneNumber());
-
         ObservableList<Countries> countryList = CountryDAO.getAllCountries();
         ObservableList<FirstLevelDivisions> divisionList = FLDivisionsDAO.getDivisions();
 
@@ -77,17 +79,25 @@ public class updateCustomerPageController implements Initializable {
             }
     }
 
+    /**
+     * This method goes back to the main customer page when the user clicks cancel
+     * @param event - event
+     * @throws IOException - exception handling
+     */
     @FXML
     void onActionReturntoCustomerInfoBtn(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
         scene = FXMLLoader.load(getClass().getResource("/View/CustomerInfoPage.fxml"));
         stage.setScene(new Scene(scene));
         stage.show();
-
     }
 
-    //one of two lamda expressions, originally hard coded both country and divisions boxes creating several lines of unncessary code.
-    // Using a lamda reduced the amount of code by over 20 lines.
+
+    /**
+     * This method handles the filtering of the country and divisions combo boxes
+     * Lambda - line 108 - 1 of 2 lambdas. originally hard coded both country and divisions boxes creating several lines of unncessary code. Using a lamda reduced the amount of code by over 20 lines.
+     * @param event - event
+     */
     @FXML
     void onActionUpdateCustomerCombo(ActionEvent event) {
         ObservableList<FirstLevelDivisions> divisionsByCountry = FXCollections.observableArrayList();
@@ -101,10 +111,14 @@ public class updateCustomerPageController implements Initializable {
         updateCustomerDivisions.setItems(divisionsByCountry);
     }
 
+    /**
+     * This method saves the updated information in the update customer page controller when the user clicks save
+     * @param event - event
+     * @throws IOException - exception handling
+     */
     @FXML
     void onActionSaveUpdateBtn(ActionEvent event) throws IOException {
         try{
-
             String name = updateCustomerNameTxt.getText();
             String address = updateCustomerAddressTxt.getText();
             String postalCode = updateCustomerPostalCodeTxt.getText();
@@ -170,6 +184,11 @@ public class updateCustomerPageController implements Initializable {
     }
 
 
+    /**
+     * This method sets the countries to the combo boxes using an observable list
+     * @param url - url
+     * @param resourceBundle - resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<Countries> allCountries = CountryDAO.getAllCountries();

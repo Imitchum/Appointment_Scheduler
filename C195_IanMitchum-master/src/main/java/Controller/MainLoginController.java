@@ -1,11 +1,7 @@
 package Controller;
-
-import DAO.CountryDAO;
 import DAO.UsersDAO;
 import Helper.TimeHelper;
-import Model.Countries;
 import Model.Users;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +10,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -25,6 +20,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+/**
+ * This is the controller for the main login it handles logging into the program as well as handling exceptions
+ */
 public class MainLoginController implements Initializable {
     @FXML
     private PasswordField mainLoginPasswordTxt;
@@ -46,15 +44,22 @@ public class MainLoginController implements Initializable {
     private Label regionLbl;
     @FXML
     private Label usernameLbl;
-
     Stage stage;
     Parent scene;
 
+    /**
+     * This method handles closing the program
+     * @param event - event
+     */
     @FXML
     void OnActionCloseProgram(ActionEvent event) {System.exit(0);}
 
 
-
+    /**
+     * This event and methods handle logging and going to the customers page. It handles exceptions, as well as writes if the login was successful or not to a file.
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void onActionGoToCustomersPage(ActionEvent event) throws IOException {
         //gets timestamp for current time and date
@@ -109,6 +114,11 @@ public class MainLoginController implements Initializable {
     }
 
 
+    /**
+     * This handles changing the language if the language settings are in French
+     * @param url - url
+     * @param resourceBundle - resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         tzLbl.setText(String.valueOf(ZoneId.systemDefault()));
@@ -121,8 +131,6 @@ public class MainLoginController implements Initializable {
             exitBtn.setText(rb.getString("Exit"));
             loginLbl.setText(rb.getString("Login"));
         }
-
     }
-
 }
 

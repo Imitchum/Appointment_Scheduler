@@ -1,5 +1,4 @@
 package Controller;
-
 import DAO.AppointmentsDAO;
 import DAO.ContactsDAO;
 import DAO.CustomersDAO;
@@ -19,7 +18,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -27,7 +25,9 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ResourceBundle;
 
-
+/**
+ * This is the update appointments page controller
+ */
 public class updateAppointmentsPageController implements Initializable {
     @FXML
     private ComboBox<Contacts> updateAppointmentContactID;
@@ -53,16 +53,15 @@ public class updateAppointmentsPageController implements Initializable {
     private TextField updateAppointmentTypeTxt;
     @FXML
     private ComboBox<Users> updateAppointmentUserID;
-
-
     Stage stage;
     Parent scene;
 
 
-
-
+    /**
+     * This method gets the appointment information from the main appointments page and sets it in the appointment update page.
+     * @param selectedAppointments - selectedAppointments
+     */
     public void sendAppointmentInfo(Appointments selectedAppointments) {
-
         ObservableList<Contacts> contactNames = ContactsDAO.getAllContacts();
         updateAppointmentContactID.setItems(contactNames);
 
@@ -77,7 +76,6 @@ public class updateAppointmentsPageController implements Initializable {
         updateAppointmentDescriptionTxt.setText(selectedAppointments.getAppointmentDescription());
         updateAppointmentLocationTxt.setText(selectedAppointments.getAppointmentLocation());
         updateAppointmentTypeTxt.setText(selectedAppointments.getAppointmentType());
-
         updateApptStartTime.setValue(selectedAppointments.getAppointmentStartTime().toLocalTime());
         updateAppointmentStartDate.setValue(selectedAppointments.getAppointmentStartTime().toLocalDate());
         updateApptEndTime.setValue(selectedAppointments.getAppointmentEndTime().toLocalTime());
@@ -104,24 +102,29 @@ public class updateAppointmentsPageController implements Initializable {
                 updateAppointmentUserID.setValue(new Users(users.userID));
             }
         }
-
-
     }
 
+    /**
+     * This method goes to the main appointments page when the user clicks the cancel button on the update appointments
+     * @param event - event
+     * @throws IOException - exception handling
+     */
     @FXML
     void onActionReturnToAppointmentsPageBtn(ActionEvent event) throws IOException {
         stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
         scene = FXMLLoader.load(getClass().getResource("/View/appointmentsPage.fxml"));
         stage.setScene(new Scene(scene));
         stage.show();
-
     }
 
+    /**
+     * This method saves updated appointments and handles any exceptions
+     * @param event - event
+     * @throws IOException - exception handling
+     */
     @FXML
     void onActionSaveUpdatedAppointmentBtn(ActionEvent event) throws IOException {
-
         try {
-
             int appointmentID = Integer.parseInt(updateAppointmentIDTxt.getText());
             String title = updateAppointmentTitleTxt.getText();
             String description = updateAppointmentDescriptionTxt.getText();
@@ -179,20 +182,17 @@ public class updateAppointmentsPageController implements Initializable {
                 alert.setContentText("Please select a contact");
                 alert.showAndWait();
 
-
             } else if (updateAppointmentCustomerID == null) {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Add appointment alert");
                 alert.setContentText("Please select a customer");
                 alert.showAndWait();
 
-
             } else if (updateAppointmentUserID == null) {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Add appointment alert");
                 alert.setContentText("Please select a user");
                 alert.showAndWait();
-
 
             } else if (updateAppointmentStartDate == null) {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -230,6 +230,11 @@ public class updateAppointmentsPageController implements Initializable {
 
     }
 
+    /**
+     * This method populates the combo boxes as well as the business hours for the update appointments page
+     * @param url -url
+     * @param resourceBundle - resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
