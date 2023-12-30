@@ -56,4 +56,20 @@ public class Contacts {
         return contactID;
     }
 
+    /**
+     * This method gets the total for the contact report
+     * @return - total
+     */
+    public int getTotal() {
+        return total;
+    }
+
+    /**
+     * This method sets the total
+     * @param total - total
+     */
+    public void setTotal(int total) {
+        this.total = total;
+    }
+
 }
