@@ -1,8 +1,10 @@
 TItle: Appointment Scheduler
+Version: 1
 Purpose: To build and develop a GUI-based scheduling desktop application
 Author: Ian Mitchum
 Contact information: imitchu@wgu.edu
 IDE: Intellij IDEA 2023.3.1 JDK 17.0.9 JavaFX-SDK-21.0.1
+MySQL connector driver version number: mysql-connector-j-8.2.0
 
 Instructions:
 
