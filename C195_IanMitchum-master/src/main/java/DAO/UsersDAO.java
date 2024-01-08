@@ -51,8 +51,8 @@ public class UsersDAO {
             ps.setString(1,username);
             ps.setString(2,password);
             ResultSet rs = ps.executeQuery();
-
-            while(rs.next())
+            
+            if(rs.next())
             {
                 int userID = rs.getInt("User_ID");
                 String userName =rs.getString("User_Name");

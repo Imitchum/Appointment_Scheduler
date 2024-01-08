@@ -8,8 +8,7 @@ import java.time.*;
 import java.time.format.DateTimeFormatter;
 
 /**
- * This method handles the business hours as well as the 15-minute alerts when the user logs in
- */
+ * This method handles the business hours as well as the 15-minute alerts when the user logs in */
 public class TimeHelper {
     //method to change combo boxes to business hours 8a-10p
     //method to change timezones

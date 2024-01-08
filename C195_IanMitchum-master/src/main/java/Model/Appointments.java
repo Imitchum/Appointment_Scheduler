@@ -1,4 +1,9 @@
 package Model;
+import DAO.AppointmentsDAO;
+import DAO.ContactsDAO;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.time.LocalDateTime;
 
 /**
@@ -130,6 +135,19 @@ public class Appointments {
      */
     public int getUserID() {
         return userID;
+    }
+
+    public static ObservableList<Appointments> lookupAppts(String apptType)
+    {
+        ObservableList<Appointments> apptTypes = FXCollections.observableArrayList();
+        ObservableList<Appointments> allAppts = AppointmentsDAO.getAllAppointments();
+
+        for(Appointments appts: allAppts) {
+            if(appts.appointmentType.contains(apptType)) {
+                apptTypes.add(appts);
+            }
+        }
+        return apptTypes;
     }
 
 }

@@ -11,7 +11,7 @@
    <children>
       <TableView fx:id="customerTableView" layoutX="74.0" layoutY="85.0" prefHeight="200.0" prefWidth="680.0">
          <columns>
-            <TableColumn fx:id="customerIDCol" minWidth="68.0" prefWidth="81.0" text="Customer ID" />
+            <TableColumn fx:id="customerIDCol" minWidth="68.0" prefWidth="81.0" text="Patient ID" />
             <TableColumn fx:id="customerNameCol" minWidth="89.0" prefWidth="89.0" text="Name" />
             <TableColumn fx:id="customerAddressCol" prefWidth="121.0" text="Address" />
             <TableColumn fx:id="customerPostalCodeCol" prefWidth="75.0" text="Postal Code" />
@@ -23,7 +23,7 @@
       <Button fx:id="addCustomerBtn" layoutX="72.0" layoutY="299.0" mnemonicParsing="false" onAction="#addCustomerPage" text="Add" />
       <Button fx:id="updateCustomerBtn" layoutX="125.0" layoutY="299.0" mnemonicParsing="false" onAction="#updateCustomerPage" text="Update" />
       <Button fx:id="deleteCustomerBtn" layoutX="196.0" layoutY="299.0" mnemonicParsing="false" onAction="#deleteCustomer" text="Delete" />
-      <Label layoutX="72.0" layoutY="51.0" text="Customer Information">
+      <Label layoutX="72.0" layoutY="51.0" text="Patient Information">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

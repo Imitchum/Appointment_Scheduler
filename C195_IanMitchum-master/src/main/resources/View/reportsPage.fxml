@@ -11,7 +11,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="706.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.reportsPageController">
    <children>
       <Button layoutX="508.0" layoutY="20.0" mnemonicParsing="false" onAction="#onActionGoToAppointmentsPage" text="Appointments" />
-      <Button layoutX="413.0" layoutY="20.0" mnemonicParsing="false" onAction="#onActionGoToCustomersPage" text="Customers" />
+      <Button layoutX="413.0" layoutY="20.0" mnemonicParsing="false" onAction="#onActionGoToCustomersPage" text="Patients" />
       <Button layoutX="615.0" layoutY="20.0" mnemonicParsing="false" onAction="#onActionGoToMainLoginScreen" text="Cancel" />
       <TableView fx:id="reportAppointmentTbleView" layoutX="12.0" layoutY="60.0" prefHeight="101.0" prefWidth="680.0">
         <columns>

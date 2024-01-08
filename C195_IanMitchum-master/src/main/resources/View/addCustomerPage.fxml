@@ -9,16 +9,16 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.addCustomerPageController">
    <children>
-      <Label layoutX="38.0" layoutY="26.0" text="Add Customer">
+      <Label layoutX="38.0" layoutY="26.0" text="Add Patient">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="38.0" layoutY="94.0" text="Customer ID" />
+      <Label layoutX="38.0" layoutY="94.0" text="Patient ID" />
       <TextField fx:id="customerIDTxt" disable="true" layoutX="142.0" layoutY="90.0" promptText="Auto-Generated" />
-      <Label layoutX="38.0" layoutY="136.0" text="Customer Name" />
+      <Label layoutX="38.0" layoutY="136.0" text="Patient Name" />
       <TextField fx:id="customerNameTxt" layoutX="142.0" layoutY="132.0" />
-      <Label layoutX="38.0" layoutY="174.0" text="Customer Address" />
+      <Label layoutX="38.0" layoutY="174.0" text="Patient Address" />
       <TextField fx:id="customerAddressTxt" layoutX="142.0" layoutY="170.0" />
       <Label layoutX="38.0" layoutY="215.0" text="Postal Code" />
       <TextField fx:id="customerPostalCodeTxt" layoutX="142.0" layoutY="211.0" />

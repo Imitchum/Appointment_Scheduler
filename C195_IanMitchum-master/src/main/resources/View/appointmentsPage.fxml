@@ -5,6 +5,7 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -39,8 +40,10 @@
          </toggleGroup></RadioButton>
       <RadioButton layoutX="672.0" layoutY="306.0" mnemonicParsing="false" onAction="#onActionShowMonthlyAppts" text="Monthly Appointments" toggleGroup="$appointmentFilter" />
       <RadioButton layoutX="347.0" layoutY="306.0" mnemonicParsing="false" onAction="#onActionShowAllAppts" selected="true" text="All Appointments" toggleGroup="$appointmentFilter" />
-      <Button layoutX="762.0" layoutY="50.0" mnemonicParsing="false" onAction="#onActionGoToReportPage" text="Reports" />
+      <Button layoutX="432.0" layoutY="50.0" mnemonicParsing="false" onAction="#onActionGoToReportPage" text="Reports" />
       <Button layoutX="764.0" layoutY="347.0" mnemonicParsing="false" onAction="#onActionGoToMainLogin" text="Cancel" />
-      <Button layoutX="662.0" layoutY="50.0" mnemonicParsing="false" onAction="#onActionGoToCustomerPage" text="Customers" />
+      <Button layoutX="360.0" layoutY="50.0" mnemonicParsing="false" onAction="#onActionGoToCustomerPage" text="Patients" />
+      <TextField fx:id="apptSearchTxt" layoutX="715.0" layoutY="50.0" onAction="#onActionSearchAppt" />
+      <Label layoutX="539.0" layoutY="54.0" text="Search Appointments By Type" />
    </children>
 </AnchorPane>
